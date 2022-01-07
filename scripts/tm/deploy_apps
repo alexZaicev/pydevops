@@ -1,0 +1,11 @@
+#!/bin/bash
+
+./install/1_config/2_deploy_configuration.sh
+if [[ $? -ne 0 ]]; then
+	exit 1
+fi
+
+./install/1_config/5_deploy_applications.sh
+if [[ $? -ne 0 ]]; then
+	exit 1
+fi

@@ -1,0 +1,12 @@
+#!/bin/bash
+
+APP_NAME=$1
+
+rm -rf $FMP_HOME/jboss/modules/ch
+
+tar -xvzf $FMP_HOME/repo/${APP_NAME} -C $FMP_HOME/jboss/modules
+
+basename -- $(ls $FMP_HOME/repo/${APP_NAME}) > $FMP_HOME/jboss/modules/TARBALL_VERSION
+
+rm -f $FMP_HOME/repo/${APP_NAME}
+

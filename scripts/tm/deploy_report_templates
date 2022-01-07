@@ -1,0 +1,9 @@
+#!/bin/bash
+
+cd $FMP_HOME
+
+./install/1_config/5_deploy_report_templates.sh
+
+if [[ $? -ne 0 ]]; then
+	exit 1
+fi

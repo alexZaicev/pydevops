@@ -1,0 +1,15 @@
+#!/bin/bash
+
+APP_NAME=$1
+
+rm -rf $FMP_HOME/tomcat/lib/*
+
+tar -xvzf $FMP_HOME/repo/${APP_NAME} -C $FMP_HOME/tomcat/lib
+
+basename -- $(ls $FMP_HOME/repo/${APP_NAME}) > $FMP_HOME/tomcat/lib/TARBALL_VERSION
+
+if [ -f ./install/2_tomcat/tomcat-lib-native-APR-RHEL6.tar.gz ]; then
+	tar -xvzf ./install/2_tomcat/tomcat-lib-native-APR-RHEL6.tar.gz -C ./tomcat
+fi
+
+rm -f $FMP_HOME/repo/${APP_NAME}

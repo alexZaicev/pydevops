@@ -1,0 +1,9 @@
+#!/bin/bash
+
+rm -rf $FMP_HOME/tomcat/webapps/*
+rm -rf $FMP_HOME/jboss/standalone/deployments/*
+rm -rf $FMP_HOME/install/6_fmp/*
+rm -rf $FMP_HOME/log/*
+rm -rf $FMP_HOME/repo/*
+
+mkdir $FMP_HOME/log/work

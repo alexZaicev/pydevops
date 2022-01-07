@@ -1,0 +1,7 @@
+#!/bin/bash
+
+cd $HOME
+
+rm -rf keycloak/standalone/deployments/*
+rm -rf log/*
+rm -rf repo/*

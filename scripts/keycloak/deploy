@@ -1,0 +1,5 @@
+#!/bin/bash
+
+cd $HOME
+
+mv repo/ch.bbp.fms.keycloak.*.jar keycloak/standalone/deployments/

@@ -1,0 +1,15 @@
+#!/bin/bash
+
+cd $FMP_HOME
+
+rm -rf ./install/5_db/db_fms_*
+
+./install/1_config/5_deploy_package.sh gmp*db-scripts.zip ./install/5_db
+if [[ $? -ne 0 ]]; then
+	exit 1
+fi
+
+./install/5_db/db_update.sh
+if [[ $? -ne 0 ]]; then
+	exit 1
+fi

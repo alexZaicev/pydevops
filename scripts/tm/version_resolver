@@ -1,0 +1,124 @@
+#!/usr/bin/python3
+
+import logging
+import os
+
+from argparse import ArgumentParser
+
+VALID_ARTIFACT_EXTENSIONS = (
+    'EAR', 'ZIP', 'WAR'
+)
+
+
+class Artifact(object):
+
+    def __init__(self, name, version, ext, artifact):
+        object.__init__(self)
+        self.name = name
+        self.version = version
+        self.ext = ext
+        self.artifact = artifact
+
+    def __str__(self):
+        return '{}-{}.{}'.format(self.name, self.version, self.ext)
+
+
+def __main():
+    parser = ArgumentParser()
+    parser.add_argument('-min', '--minimum-version', action='store_true', dest='v_min', default=False,
+                        help='Leave lowest artifact version and remove the rest')
+    parser.add_argument('-p', '--path', action='store', dest='path', help='Path to artifacts')
+    args = parser.parse_args()
+
+    __resolve(__parse(__get_artifacts(args.path)), args.path, args.v_min)
+
+
+def __get_artifacts(path):
+    result = list()
+    for ff in os.listdir(path):
+        for ext in VALID_ARTIFACT_EXTENSIONS:
+            if ff.endswith(ext.lower()):
+                result.append(ff)
+                break
+    return result
+
+
+def __parse_version(art):
+    v = int(art.version.replace('.', ''))
+    return v
+
+
+def __resolve(artifacts, path, v_min=False):
+    a_groups = dict()
+    for a in artifacts:
+        k_id = '{}.{}'.format(a.name.upper(), a.ext.upper())
+        if k_id not in a_groups:
+            a_groups[k_id] = list()
+        a_groups[k_id].append(a)
+
+    for ag in a_groups.values():
+        if len(ag) > 1:
+            ag.sort(key=__parse_version, reverse=(not v_min))
+            for idx in range(1, len(ag), 1):
+                os.remove(os.path.join(path, ag[idx].artifact))
+                logging.getLogger(__name__).info('Artifact {} has been removed'.format(ag[idx].artifact))
+
+
+def __is_version_token(token):
+    try:
+        for s in token.split('.'):
+            int(s)
+    except ValueError:
+        return False
+    return True
+
+
+def __is_extension_token(token):
+    tokens = token.split('.')
+    if len(tokens) < 3:
+        token = tokens[len(tokens) - 1].upper()
+        return token in VALID_ARTIFACT_EXTENSIONS
+    return False
+
+
+def __add_token_to_name(name, token):
+    if token.upper() == 'SNAPSHOT':
+        return name
+    if len(name) == 0:
+        name = token
+    else:
+        name = '{}-{}'.format(name, token)
+    return name
+
+
+def __parse(artifacts):
+    result = list()
+    for a in artifacts:
+        name, version, ext = '', '', ''
+        for token in a.split('-'):
+            # check if token is extension
+            if __is_extension_token(token):
+                name = __add_token_to_name(name, token.split('.')[0])
+                ext = token.split('.')[1]
+                continue
+            # check if token is version
+            if __is_version_token(token):
+                version = token
+                continue
+            name = __add_token_to_name(name, token)
+        result.append(Artifact(name=name, version=version, ext=ext, artifact=a))
+    return result
+
+
+def __init_logger():
+    logging.basicConfig(
+        level=logging.DEBUG,
+        format='%(asctime)s [%(threadName)-12.12s] [%(levelname)-5.5s]  %(message)s',
+        handlers=[
+            logging.StreamHandler()
+        ]
+    )
+
+
+if __name__ == "__main__":
+    __main()

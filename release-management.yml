@@ -1,0 +1,170 @@
+# TM/TS/TM4C Release - v6.0.0
+- name: TM/TS/TM4C Release
+  version: v6.0.0
+  authMode: CAS
+  artifact-versions:
+    - name: gmp-admin
+      version: v203.0.0
+      project: TM
+    - name: gmp-audit
+      version: v203.0.0
+      project: TM
+    - name: gmp-authentication
+      version: v203.0.0
+      project: TM
+    - name: gmp-cockpit
+      version: v203.0.0
+      project: TM
+    - name: gmp-cofi
+      version: v203.0.0
+      project: TM
+    - name: gmp-directory
+      version: v203.0.0
+      project: TM
+    - name: gmp-fileflow
+      version: v203.0.0
+      project: TM
+    - name: gmp-fin
+      version: v203.0.0
+      project: TM
+    - name: gmp-funds
+      version: v203.0.0
+      project: TM
+    - name: gmp-help
+      version: v203.0.0
+      project: TM
+    - name: gmp-mx
+      version: v203.0.0
+      project: TM
+    - name: gmp-report
+      version: v203.0.0
+      project: TM
+    - name: gmp-report-templates
+      version: v203.0.0
+      project: TM
+    - name: gmp-rma
+      version: v203.0.0
+      project: TM
+    - name: gmp-sic-eurosic
+      version: v203.0.0
+      project: TM
+    - name: jboss-modules
+      version: v203.0.0
+      project: TM
+    - name: tomcat-lib
+      version: v203.0.0
+      project: TM
+
+# TM/TS/TM4C Release - v6.0.1
+- name: TM/TS/TM4C Release
+  version: v6.0.1
+  authMode: CAS
+  artifact-versions:
+    - name: gmp-admin
+      version: v203.0.1
+      project: TM
+    - name: gmp-audit
+      version: v203.0.1
+      project: TM
+    - name: gmp-authentication
+      version: v203.0.1
+      project: TM
+    - name: gmp-cockpit
+      version: v203.0.1
+      project: TM
+    - name: gmp-cofi
+      version: v203.0.1
+      project: TM
+    - name: gmp-directory
+      version: v203.0.1
+      project: TM
+    - name: gmp-fileflow
+      version: v203.0.2
+      project: TM
+    - name: gmp-fin
+      version: v203.0.2
+      project: TM
+    - name: gmp-funds
+      version: v203.0.2
+      project: TM
+    - name: gmp-help
+      version: v203.0.1
+      project: TM
+    - name: gmp-mx
+      version: v203.0.1
+      project: TM
+    - name: gmp-report
+      version: v203.0.1
+      project: TM
+    - name: gmp-report-templates
+      version: v203.0.1
+      project: TM
+    - name: gmp-rma
+      version: v203.0.1
+      project: TM
+    - name: gmp-sic-eurosic
+      version: v203.0.2
+      project: TM
+    - name: jboss-modules
+      version: v203.0.1
+      project: TM
+    - name: tomcat-lib
+      version: v203.0.2
+      project: TM
+
+# TM/TS/TM4C Release - v6.0.2
+- name: TM/TS/TM4C Release
+  version: v6.0.2
+  authMode: CAS
+  artifact-versions:
+    - name: gmp-admin
+      version: v203.0.2
+      project: TM
+    - name: gmp-audit
+      version: v203.0.2
+      project: TM
+    - name: gmp-authentication
+      version: v203.0.2
+      project: TM
+    - name: gmp-cockpit
+      version: v203.0.2
+      project: TM
+    - name: gmp-cofi
+      version: v203.0.2
+      project: TM
+    - name: gmp-directory
+      version: v203.0.2
+      project: TM
+    - name: gmp-fileflow
+      version: v203.0.4
+      project: TM
+    - name: gmp-fin
+      version: v203.0.4
+      project: TM
+    - name: gmp-funds
+      version: v203.0.4
+      project: TM
+    - name: gmp-help
+      version: v203.0.2
+      project: TM
+    - name: gmp-mx
+      version: v203.0.2
+      project: TM
+    - name: gmp-report
+      version: v203.0.2
+      project: TM
+    - name: gmp-report-templates
+      version: v203.0.2
+      project: TM
+    - name: gmp-rma
+      version: v203.0.2
+      project: TM
+    - name: gmp-sic-eurosic
+      version: v203.0.4
+      project: TM
+    - name: jboss-modules
+      version: v203.0.2
+      project: TM
+    - name: tomcat-lib
+      version: v203.0.3
+      project: TM
